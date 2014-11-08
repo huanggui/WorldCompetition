@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="tab_icons">
+		<item>Command one</item>
+		<item>Command two</item>
+		<item>Command three</item>
+		<item>Command four</item>
+	</string-array>
+
+	<string-array name="tab_titles">
+		<item>竞赛</item>
+		<item>动态</item>
+		<item>我</item>
+	</string-array>
+</resources>
