@@ -26,6 +26,10 @@
         </activity>
         <activity android:name=".activity.UserTabActivity" >
         </activity>
+        <activity android:name=".activity.FocusFriendsActivity" >
+        </activity>
+        <activity android:name=".activity.TalkFriendActivity" >
+        </activity>
     </application>
 
 </manifest>

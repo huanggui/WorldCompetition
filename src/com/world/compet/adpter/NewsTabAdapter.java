@@ -3,12 +3,17 @@ package com.world.compet.adpter;
 import java.util.ArrayList;
 import java.util.List;
 import com.world.compet.R;
+import com.world.compet.activity.FocusFriendsActivity;
+import com.world.compet.activity.TalkFriendActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -20,6 +25,13 @@ public class NewsTabAdapter extends BaseAdapter{
 	private Context mContext;
 	private List<ItemElement> dataSource = new ArrayList<ItemElement>();
 	private LayoutInflater inflater;
+	
+	public static final int TAB_FOCUS_FRIEND = 1;
+	public static final int TAB_FOCUS_COMPETITION = TAB_FOCUS_FRIEND + 1;
+	public static final int TAB_TALK_FRIEND = TAB_FOCUS_COMPETITION + 1;
+	public static final int TAB_DAILY_BEST = TAB_TALK_FRIEND + 1;
+	public static final int TAB_ALL_RANK = TAB_DAILY_BEST + 1;
+	public static final int TAB_RELATED_UTILS = TAB_ALL_RANK + 1;
 	
 	public NewsTabAdapter(Context context) {
 		super();
@@ -35,7 +47,7 @@ public class NewsTabAdapter extends BaseAdapter{
 		String[] titles = resources.getStringArray(R.array.news_tab_titles);
 		for (int i = 0; i < titles.length; i++) {
 			ItemElement itemElement = createItemElement(resources.getDrawable(R.drawable.tip_yellowstrip),logos.getResourceId(i, 0),
-					titles[i], titles[i], i);
+					titles[i], i + 1, i);
 			dataSource.add(itemElement);
 		}
 	}
@@ -62,7 +74,7 @@ public class NewsTabAdapter extends BaseAdapter{
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ItemElement item = (ItemElement) getItem(position);
+		final ItemElement item = (ItemElement) getItem(position);
 		final ViewHolder holder;
 		if (item == null) {
 			return null;
@@ -83,7 +95,46 @@ public class NewsTabAdapter extends BaseAdapter{
 		
 		fillValue(holder, item, position);
 		
+		convertView.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				handleIntent(item);			
+			}
+		});
+		
 		return convertView;
+	}
+	
+	private void handleIntent(ItemElement item) {
+		if (item == null) {
+			return ;
+		}
+		Intent intent = null;
+		switch (item.tag) {
+		case TAB_FOCUS_FRIEND:
+			intent = new Intent(mContext,FocusFriendsActivity.class);
+			mContext.startActivity(intent);
+			break;
+		case TAB_FOCUS_COMPETITION:
+			
+			break;
+		case TAB_TALK_FRIEND:
+			intent = new Intent(mContext,TalkFriendActivity.class);
+			mContext.startActivity(intent);
+			break;
+		case TAB_DAILY_BEST:
+			
+			break;
+		case TAB_ALL_RANK:
+			
+			break;
+		case TAB_RELATED_UTILS:
+			
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	private void fillValue(ViewHolder holder, ItemElement item, int position) {
@@ -91,8 +142,8 @@ public class NewsTabAdapter extends BaseAdapter{
 			return;
 		}
 
-		holder.bgImage.setBackground(item.bgImage);
-		holder.logo.setBackground(mContext.getResources().getDrawable(item.logoId));
+		holder.bgImage.setBackgroundDrawable(item.bgImage);
+		holder.logo.setBackgroundDrawable(mContext.getResources().getDrawable(item.logoId));
 		holder.title.setText(item.title);
 
 //		//根据不同位置来设置背景
@@ -133,15 +184,16 @@ public class NewsTabAdapter extends BaseAdapter{
 		public Drawable bgImage;//入口的背景图，也可以整个入口直接设置为一个背景图，而不需要设置logo和title
 		public int logoId;//入口logo的资源id
 		public String title;//入口的标题
-		public String tag;
+		public int tag;//入口的标识
 		public int position;//入口的位置：由左往右，由上往下顺序
+//		public Intent intent = null;//入口跳转的activity intent
 
 		public int topMargin = 0;// 上边距
 		public int bottomMargin = 0;// 下边距
 	}
 	
 	public ItemElement createItemElement(Drawable bgImage, int logoId, String title,
-			String tag, int position) {
+			int tag, int position) {
 		
 		ItemElement item = new ItemElement();
 		item.bgImage = bgImage;

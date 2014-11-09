@@ -5,4 +5,7 @@
     <string name="competition_type_title">竞赛类别</string>
     <string name="competition_level_title">竞赛级别</string>
     <string name="competition_time_title">竞赛时间</string>
+    
+    <item type="id" name="tab_item_key"></item>
+    
 </resources>
