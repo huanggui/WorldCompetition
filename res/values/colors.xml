@@ -1,0 +1,5 @@
+<resources>
+    <color name="tab_txt_selected">#FFFFFFFF</color>
+    <color name="tab_txt">#B7B8BA</color>
+    <color name="apk_list_bg">#EAEAEA</color>
+</resources>

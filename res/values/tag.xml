@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- 首页的tab -->
+    <item type="id" name="main_tab1"/>
+	<item type="id" name="main_tab2"/>
+	<item type="id" name="main_tab3"/>
+</resources>    

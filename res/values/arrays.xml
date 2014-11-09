@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="tab_icons">
-		<item>Command one</item>
-		<item>Command two</item>
-		<item>Command three</item>
-		<item>Command four</item>
-	</string-array>
+    <integer-array name="tab_icons">
+        <item>@drawable/icon_competitive_selector</item>
+        <item>@drawable/icon_app_selector</item>
+        <item>@drawable/icon_assistant_selector</item>
+    </integer-array>
 
 	<string-array name="tab_titles">
 		<item>竞赛</item>

@@ -31,7 +31,6 @@ public class MainActivity extends BottomTabActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
         
         mHost = getTabHost();
         initTabs();
@@ -39,28 +38,25 @@ public class MainActivity extends BottomTabActivity {
     
     private void initTabs() {
 
-//		TypedArray icons = getResources().obtainTypedArray(R.array.tab_icons);
+		TypedArray icons = getResources().obtainTypedArray(R.array.tab_icons);
 		String[] titles = getResources().getStringArray(R.array.tab_titles);
 		
 		Resources resource = getResources();
 		com.world.compet.component.BottomTabHost.TabSpec tabSpec = mHost.newTabSpec("tab1");
-//		tabSpec.setIndicator(titles[0], resource.getDrawable(icons.getResourceId(0, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setIndicator(titles[0]);
+		tabSpec.setIndicator(titles[0], resource.getDrawable(icons.getResourceId(0, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
 		tabSpec.setContent(new Intent(MainActivity.this, CompetitonActivity.class));
-//		mTabBtns[0] = (TabView) mHost.addTab(tabSpec,R.id.main_tab1);
+		mTabBtns[0] = (TabView) mHost.addTab(tabSpec,R.id.main_tab1);
 
 		tabSpec = mHost.newTabSpec("tab2");
-//		tabSpec.setIndicator(titles[1], resource.getDrawable(icons.getResourceId(1, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setIndicator(titles[1]);
+		tabSpec.setIndicator(titles[1], resource.getDrawable(icons.getResourceId(1, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
 		tabSpec.setContent(new Intent(MainActivity.this, NewsActivity.class));
-//		mTabBtns[1] = (TabView) mHost.addTab(tabSpec,R.id.main_tab2);
+		mTabBtns[1] = (TabView) mHost.addTab(tabSpec,R.id.main_tab2);
 
 		tabSpec = mHost.newTabSpec("tab3");
-//		tabSpec.setIndicator(titles[2], resource.getDrawable(icons.getResourceId(2, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setIndicator(titles[2]);
+		tabSpec.setIndicator(titles[2], resource.getDrawable(icons.getResourceId(2, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
 		tabSpec.setContent(new Intent(MainActivity.this, UserActivity.class));
-//		mTabBtns[2] = (TabView) mHost.addTab(tabSpec,R.id.main_tab3);
+		mTabBtns[2] = (TabView) mHost.addTab(tabSpec,R.id.main_tab3);
 		
-//		icons.recycle();
+		icons.recycle();
 	}
 }
