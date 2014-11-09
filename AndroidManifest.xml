@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".activity.CompetitionActivity" >
+        <activity android:name=".activity.CompetitionTabActivity" >
         </activity>
-        <activity android:name=".activity.NewsActivity" >
+        <activity android:name=".activity.NewsTabActivity" >
         </activity>
-        <activity android:name=".activity.UserActivity" >
+        <activity android:name=".activity.UserTabActivity" >
         </activity>
     </application>
 

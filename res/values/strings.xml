@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">WorldCompetition</string>
+    <string name="competition_type_title">竞赛类别</string>
+    <string name="competition_level_title">竞赛级别</string>
+    <string name="competition_time_title">竞赛时间</string>
 </resources>

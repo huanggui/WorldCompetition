@@ -1,5 +1,12 @@
 <resources>
+
     <color name="tab_txt_selected">#FFFFFFFF</color>
     <color name="tab_txt">#B7B8BA</color>
     <color name="apk_list_bg">#EAEAEA</color>
+    <color name="top_bar_search_select_bg_color">#0d000000</color>
+    <color name="second_tab_selected_color">#00a3ef</color>
+    <color name="second_tab_unselected_color">#5a5a5a</color>
+    <color name="second_cursor_index">#00adff</color>
+    <color name="top_tab_bottom_line">#cacaca</color>
+
 </resources>

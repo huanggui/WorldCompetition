@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import com.world.compet.component.BottomTabHost.TabSpec;
 
 public class MainActivity extends BottomTabActivity {
 	
@@ -25,6 +26,7 @@ public class MainActivity extends BottomTabActivity {
 	
 	private BottomTabHost mHost;
 	private TabView[] mTabBtns = new TabView[MAX_TAB_COUNT];
+	private int currIndex = 0;
 	
 	
     /** Called when the activity is first created. */
@@ -42,21 +44,40 @@ public class MainActivity extends BottomTabActivity {
 		String[] titles = getResources().getStringArray(R.array.tab_titles);
 		
 		Resources resource = getResources();
-		com.world.compet.component.BottomTabHost.TabSpec tabSpec = mHost.newTabSpec("tab1");
+		TabSpec tabSpec = mHost.newTabSpec("tab1");
 		tabSpec.setIndicator(titles[0], resource.getDrawable(icons.getResourceId(0, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setContent(new Intent(MainActivity.this, CompetitonActivity.class));
+		tabSpec.setContent(new Intent(MainActivity.this, CompetitionTabActivity.class));
 		mTabBtns[0] = (TabView) mHost.addTab(tabSpec,R.id.main_tab1);
 
 		tabSpec = mHost.newTabSpec("tab2");
 		tabSpec.setIndicator(titles[1], resource.getDrawable(icons.getResourceId(1, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setContent(new Intent(MainActivity.this, NewsActivity.class));
+		tabSpec.setContent(new Intent(MainActivity.this, NewsTabActivity.class));
 		mTabBtns[1] = (TabView) mHost.addTab(tabSpec,R.id.main_tab2);
 
 		tabSpec = mHost.newTabSpec("tab3");
 		tabSpec.setIndicator(titles[2], resource.getDrawable(icons.getResourceId(2, 0)), resource.getDrawable(R.drawable.tab_item_bg_selector));
-		tabSpec.setContent(new Intent(MainActivity.this, UserActivity.class));
+		tabSpec.setContent(new Intent(MainActivity.this, UserTabActivity.class));
 		mTabBtns[2] = (TabView) mHost.addTab(tabSpec,R.id.main_tab3);
 		
 		icons.recycle();
 	}
+
+//	public void onClick(View v) {
+//
+//		switch (v.getId()) {
+//		case R.id.main_tab1:
+//			setTab(TabType.COMPETITION.ordinal());
+//			break;
+//		case R.id.main_tab2:
+//			setTab(TabType.NEWS.ordinal());
+//			break;
+//		case R.id.main_tab3:
+//			setTab(TabType.USER.ordinal());
+//			break;
+//		}
+//	}
+//	
+//	private void setTab(int index) {
+//		mHost.setCurrentTab(currIndex);
+//	}
 }

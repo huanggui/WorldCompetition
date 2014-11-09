@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="TXScrollView">
+        <attr name = "ScrollMode">
+            <flag name="PULL_FROM_START" value="0"/>
+            <flag name="PULL_FROM_END" value="1"/>
+            <flag name="BOTH" value="2"/>
+            <flag name="NONE" value="3"/>
+            <flag name="NOSCROLL" value="4"/>
+        </attr>
+        <attr name = "ScrollDirection">
+            <flag name = "VERTICAL" value="0"/>
+            <flag name = "HORIZONTAL" value="1"/>
+        </attr>
+    </declare-styleable>
+    
+</resources>

@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <integer-array name="tab_icons">
         <item>@drawable/icon_competitive_selector</item>
         <item>@drawable/icon_app_selector</item>
         <item>@drawable/icon_assistant_selector</item>
     </integer-array>
 
-	<string-array name="tab_titles">
-		<item>竞赛</item>
-		<item>动态</item>
-		<item>我</item>
-	</string-array>
+    <string-array name="tab_titles">
+        <item>竞赛</item>
+        <item>动态</item>
+        <item>我</item>
+    </string-array>
+
+    <integer-array name="news_tab_logos">
+        <item>@drawable/icon_1x</item>
+        <item>@drawable/icon_2x</item>
+        <item>@drawable/icon_3x</item>
+        <item>@drawable/icon_4x</item>
+        <item>@drawable/icon_5x</item>
+        <item>@drawable/icon_6x</item>
+    </integer-array>
+
+    <string-array name="news_tab_titles">
+        <item>关注</item>
+        <item>聊天</item>
+        <item>每日精华</item>
+        <item>排名</item>
+        <item>工具</item>
+        <item>发布竞赛</item>
+    </string-array>
+
 </resources>
