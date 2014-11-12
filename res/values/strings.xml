@@ -5,6 +5,7 @@
     <string name="competition_type_title">竞赛类别</string>
     <string name="competition_level_title">竞赛级别</string>
     <string name="competition_time_title">竞赛时间</string>
+    <string name="title_search_hint">请输入搜索的关键字</string>
     
     <item type="id" name="tab_item_key"></item>
     
