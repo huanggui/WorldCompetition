@@ -3,20 +3,13 @@ package com.world.compet.activity;
 import com.world.compet.R;
 import com.world.compet.component.BottomTabHost;
 import com.world.compet.component.TabView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
 import android.widget.SearchView;
-import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import com.world.compet.component.BottomTabHost.TabSpec;
+import com.world.compet.view.MainHeaderActionView;
 
 public class MainActivity extends BottomTabActivity implements SearchView.OnQueryTextListener, BottomTabHost.OnTabChangeListener{
 	
@@ -35,22 +28,17 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 	private BottomTabHost mHost;
 	private TabView[] mTabBtns = new TabView[MAX_TAB_COUNT];
 	private int currIndex = 0;
-	private SearchView mSearchView;
+	private MainHeaderActionView mainHeaderActionView;
 	
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         
         mHost = getTabHost();
         mHost.setOnTabChangedListener(this);
-        initTabs();
-        initSearchActionBar();
-        
-        mSearchView.setOnQueryTextListener(this);
-        mSearchView.setSubmitButtonEnabled(false);
+        initTabs();    
     }
     
     private void initTabs() {
@@ -77,24 +65,24 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 		icons.recycle();
 	}
 
-    private void initSearchActionBar() {
-        // 自定义标题栏  
-    	if (getActionBar() == null) {
-			Log.i(TAG, "Has no ActionBar in this Activity.");
-			return ;
-		}
-        getActionBar().setDisplayShowHomeEnabled(false);  
-        getActionBar().setDisplayShowTitleEnabled(false);  
-        getActionBar().setDisplayShowCustomEnabled(true);  
-        LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);  
-        View mTitleView = mInflater.inflate(R.layout.main_search_action_bar_layout,  
-                null);  
-        getActionBar().setCustomView(  
-                mTitleView,  
-                new ActionBar.LayoutParams(LayoutParams.MATCH_PARENT,  
-                        LayoutParams.WRAP_CONTENT));  
-        mSearchView = (SearchView) mTitleView.findViewById(R.id.search_view); 
-    }
+//    private void initSearchActionBar() {
+//        // 自定义标题栏  
+//    	if (getActionBar() == null) {
+//			Log.i(TAG, "Has no ActionBar in this Activity.");
+//			return ;
+//		}
+//        getActionBar().setDisplayShowHomeEnabled(false);  
+//        getActionBar().setDisplayShowTitleEnabled(false);  
+//        getActionBar().setDisplayShowCustomEnabled(true);  
+//        LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);  
+//        View mTitleView = mInflater.inflate(R.layout.main_search_action_bar_layout,  
+//                null);  
+//        getActionBar().setCustomView(  
+//                mTitleView,  
+//                new ActionBar.LayoutParams(LayoutParams.MATCH_PARENT,  
+//                        LayoutParams.WRAP_CONTENT));  
+//        mSearchView = (SearchView) mTitleView.findViewById(R.id.search_view); 
+//    }
     
 	public boolean onQueryTextSubmit(String query) {
 		// TODO Auto-generated method stub
@@ -108,10 +96,14 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 
 	public void onTabChanged(String tabId, String preTabId) {
 		// TODO Auto-generated method stub
-		if (tabId.equals(TAB_1)) {
-			getActionBar().show();
+		if (mainHeaderActionView == null) {
+			mainHeaderActionView = (MainHeaderActionView) findViewById(R.id.header_view);
+		}
+		
+		if (TAB_1.equals(tabId)) {
+			mainHeaderActionView.showSearchButton();
 		}else {
-			getActionBar().hide();
+			mainHeaderActionView.hideSearchButton();
 		}
 	}
 

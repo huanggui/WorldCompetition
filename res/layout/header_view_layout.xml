@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="42dp"
+    android:background="#565758" >
+
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="6dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/default_user_image" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="标题"
+        android:textSize="20dp" />
+
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:iconifiedByDefault="false"
+        android:inputType="textFilter"
+        android:queryHint="@string/title_search_hint"
+        android:visibility="gone" >
+    </SearchView>
+
+    <ImageView
+        android:id="@+id/search_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="4dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon_search" />
+
+</RelativeLayout>
