@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">WorldCompetition</string>
-    <string name="competition_type_title">竞赛类别</string>
-    <string name="competition_level_title">竞赛级别</string>
-    <string name="competition_time_title">竞赛时间</string>
-    <string name="title_search_hint">请输入搜索的关键字</string>
-    
-    <item type="id" name="tab_item_key"></item>
-    
+	<string name="hello">Hello World, MainActivity!</string>
+	<string name="app_name">WorldCompetition</string>
+	<string name="competition_type_title">竞赛类别</string>
+	<string name="competition_level_title">竞赛级别</string>
+	<string name="competition_time_title">竞赛时间</string>
+	<string name="title_search_hint">请输入搜索的关键字</string>
+	<string name="no_data">没有</string>
+
+	<item type="id" name="tab_item_key"></item>
+
 </resources>

@@ -19,5 +19,11 @@
         <item name="android:activityCloseEnterAnimation">@anim/activity_left_in</item>
         <item name="android:activityCloseExitAnimation">@anim/activity_right_out</item>
     </style>
+    
+    <!-- 二级菜单弹出动画 -->
+        <style name="PopupWindowAnimation">  
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>  
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>  
+    </style>
 
 </resources>
