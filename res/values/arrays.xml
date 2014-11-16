@@ -1,38 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<integer-array name="tab_icons">
-		<item>@drawable/icon_competitive_selector</item>
-		<item>@drawable/icon_app_selector</item>
-		<item>@drawable/icon_assistant_selector</item>
-	</integer-array>
+    <integer-array name="tab_icons">
+        <item>@drawable/icon_competitive_selector</item>
+        <item>@drawable/icon_app_selector</item>
+        <item>@drawable/icon_assistant_selector</item>
+    </integer-array>
 
-	<string-array name="tab_titles">
-		<item>竞赛</item>
-		<item>动态</item>
-		<item>我</item>
-	</string-array>
+    <string-array name="tab_titles">
+        <item>竞赛</item>
+        <item>动态</item>
+        <item>我</item>
+    </string-array>
 
-	<integer-array name="news_tab_logos">
-		<item>@drawable/icon_1x</item>
-		<item>@drawable/icon_2x</item>
-		<item>@drawable/icon_3x</item>
-		<item>@drawable/icon_4x</item>
-		<item>@drawable/icon_5x</item>
-		<item>@drawable/icon_6x</item>
-		<item>@drawable/icon_1x</item>
-		<item>@drawable/icon_2x</item>
-	</integer-array>
+    <integer-array name="news_tab_logos">
+        <item>@drawable/icon_1x</item>
+        <item>@drawable/icon_2x</item>
+        <item>@drawable/icon_3x</item>
+        <item>@drawable/icon_4x</item>
+        <item>@drawable/icon_5x</item>
+        <item>@drawable/icon_6x</item>
+        <item>@drawable/icon_1x</item>
+        <item>@drawable/icon_2x</item>
+    </integer-array>
 
-	<string-array name="news_tab_titles">
-		<item>关注的人</item>
-		<item>关注的竞赛</item>
-		<item>聊天</item>
-		<item>每日精华</item>
-		<item>排名</item>
-		<item>工具</item>
-		<item>发布竞赛</item>
-		<item>其他</item>
-	</string-array>
+    <string-array name="news_tab_titles">
+        <item>关注的人</item>
+        <item>关注的竞赛</item>
+        <item>聊天</item>
+        <item>每日精华</item>
+        <item>排名</item>
+        <item>工具</item>
+        <item>发布竞赛</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="type_tab_items">
+        <item>全部</item>
+        <item>程序设计</item>
+        <item>数学建模</item>
+        <item>机器人</item>
+        <item>电子与自动化</item>
+        <item>计算机与信息技术</item>
+    </string-array>
+    <string-array name="level_tab_items">
+        <item>全部</item>
+        <item>国际级</item>
+        <item>全国级</item>
+        <item>省级</item>
+        <item>市级</item>
+        <item>校级</item>
+    </string-array>
+    <string-array name="time_tab_items">
+        <item>全部</item>
+        <item>比赛进行中</item>
+        <item>报名进行中</item>
+        <item>即将报名</item>
+        <item>已结束</item>
+    </string-array>
 
 </resources>

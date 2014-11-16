@@ -1,9 +1,15 @@
 package com.world.compet.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.world.compet.R;
 import com.world.compet.adpter.TextAdapter;
 
+import android.R.integer;
 import android.content.Context;
+import android.graphics.Shader.TileMode;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,49 +18,56 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
-public class ViewRight extends RelativeLayout implements ViewBaseAction{
+public class PopupSelectView extends RelativeLayout implements ViewBaseAction{
 
 	private ListView mListView;
-	private final String[] items = new String[] { "item1", "item2", "item3", "item4", "item5", "item6" };//显示字段
-	private final String[] itemsVaule = new String[] { "1", "2", "3", "4", "5", "6" };//隐藏id
+	private String[] mItems = new String[]{};//显示字段
+	private List<String> mItemIds = new ArrayList<String>();//隐藏id
+	private int mBgResourceId;//不同下拉菜单的背景资源
 	private OnSelectListener mOnSelectListener;
 	private TextAdapter adapter;
 	private String mDistance;
-	private String showText = "item1";
+	private String mTitle;
+	private String showText;
 	private Context mContext;
 
 	public String getShowText() {
 		return showText;
 	}
 
-	public ViewRight(Context context) {
+	public PopupSelectView(Context context, int resId, String[] datas) {
 		super(context);
+		initDataSource(datas);
+		mBgResourceId = resId;
 		init(context);
 	}
 
-	public ViewRight(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		init(context);
-	}
-
-	public ViewRight(Context context, AttributeSet attrs) {
+	public PopupSelectView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
+	
+	private void initDataSource(String[] strings) {
+		mItems = strings;
+		for (int i = 0; i < mItems.length; i++) {
+			mItemIds.add(String.valueOf(i));
+		}
+	}		
 
 	private void init(Context context) {
 		mContext = context;
+		showText = mTitle;
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.view_distance, this, true);
-		setBackgroundDrawable(getResources().getDrawable(R.drawable.choosearea_bg_right));
+		setBackgroundDrawable(getResources().getDrawable(mBgResourceId));
 		mListView = (ListView) findViewById(R.id.listView);
-		adapter = new TextAdapter(context, items, R.drawable.choose_item_right, R.drawable.choose_eara_item_selector);
+		adapter = new TextAdapter(context, mItems, R.drawable.choose_item_right, R.drawable.choose_eara_item_selector);
 		adapter.setTextSize(17);
 		if (mDistance != null) {
-			for (int i = 0; i < itemsVaule.length; i++) {
-				if (itemsVaule[i].equals(mDistance)) {
+			for (int i = 0; i < mItemIds.size(); i++) {
+				if (mItemIds.get(i).equals(mDistance)) {
 					adapter.setSelectedPositionNoNotify(i);
-					showText = items[i];
+					showText = mItems[i];
 					break;
 				}
 			}
@@ -65,8 +78,8 @@ public class ViewRight extends RelativeLayout implements ViewBaseAction{
 			public void onItemClick(View view, int position) {
 
 				if (mOnSelectListener != null) {
-					showText = items[position];
-					mOnSelectListener.getValue(itemsVaule[position], items[position]);
+					showText = mItems[position];
+					mOnSelectListener.getValue(mItemIds.get(position), mItems[position]);
 				}
 			}
 		});

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.world.compet.R;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -19,11 +20,12 @@ import android.widget.ToggleButton;
 /**
  * 菜单控件头部，封装了下拉动画，动态生成头部按钮个数
  * 
- * @author yueyueniao
+ * @author huanggui 2014-11-15
  */
 
 public class ExpandTabView extends LinearLayout implements OnDismissListener {
 
+	private static final float PERCENT_IN_DISPLAYHEIGHT = (float) 0.5;//设置下拉菜单的高度为屏幕高度的比
 	private ToggleButton selectedButton;
 	private ArrayList<String> mTextArray = new ArrayList<String>();
 	private ArrayList<RelativeLayout> mViewArray = new ArrayList<RelativeLayout>();
@@ -32,6 +34,7 @@ public class ExpandTabView extends LinearLayout implements OnDismissListener {
 	private final int SMALL = 0;
 	private int displayWidth;
 	private int displayHeight;
+	private int mHeight;//下拉菜单的高度
 	private PopupWindow popupWindow;
 	private int selectPosition;
 
@@ -76,8 +79,8 @@ public class ExpandTabView extends LinearLayout implements OnDismissListener {
 		mTextArray = textArray;
 		for (int i = 0; i < viewArray.size(); i++) {
 			final RelativeLayout r = new RelativeLayout(mContext);
-			int maxHeight = (int) (displayHeight * 0.7);
-			RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, maxHeight);
+//			RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, mHeight);//当下拉菜单项比较多时采用这种方式较好
+			RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);//适用少量下拉菜单项
 			rl.leftMargin = 10;
 			rl.rightMargin = 10;
 			r.addView(viewArray.get(i), rl);
@@ -187,6 +190,7 @@ public class ExpandTabView extends LinearLayout implements OnDismissListener {
 		mContext = context;
 		displayWidth = ((Activity) mContext).getWindowManager().getDefaultDisplay().getWidth();
 		displayHeight = ((Activity) mContext).getWindowManager().getDefaultDisplay().getHeight();
+		mHeight = (int) (displayHeight * PERCENT_IN_DISPLAYHEIGHT);
 		setOrientation(LinearLayout.HORIZONTAL);
 	}
 
