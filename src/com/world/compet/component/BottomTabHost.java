@@ -48,7 +48,7 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 	private BottomTabWidget mTabWidget;
 	private FrameLayout mTabContent;
 	private List<TabSpec> mTabSpecs = new ArrayList<TabSpec>(2);
-	private String mTitle;
+	private String mTabTitle;
 	private String mIndicator;
 	private int mDrawId;
 
@@ -91,7 +91,7 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 	}
 
 	public void setTabSpecTitle(String title) {
-		mTitle = title;
+		mTabTitle = title;
 	}
 
 	public void setTabSpecIndicator(String indicator) {
@@ -101,22 +101,6 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 	public void setTabSpecIcon(int drawId) {
 		mDrawId = drawId;
 	}
-
-//	public void setTabSpecView(int srcId) {
-//
-//		Resources rsrc = getResources();
-//		if (rsrc == null) {
-//			return;
-//		}
-//		try {
-//			Drawable icon = rsrc.getDrawable(mDrawId);
-//			setup();
-//			addTab(newTabSpec(mTitle).setIndicator(mIndicator, icon, (Drawable)null).setContent(srcId));
-//		} catch (Throwable e) {
-//			e.printStackTrace();
-//			return;
-//		}
-//	}
 
 	/**
 	 * <p>
@@ -313,6 +297,10 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 		}
 		return null;
 	}
+	
+	public String getCurrentTabTitle() {
+		return mTabTitle;
+	}
 
 	public View getCurrentView() {
 		return mCurrentView;
@@ -381,7 +369,9 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 		mCurrentTab = index;
 //		mTabHasChange4Adv = true;
 		final BottomTabHost.TabSpec spec = mTabSpecs.get(index);
-
+		
+		mTabTitle = spec.mIndicatorStrategy.getTitle();
+				
 		// Call the tab widget's focusCurrentTab(), instead of just selecting the tab.
 		mTabWidget.focusCurrentTab(mCurrentTab);
 
@@ -530,6 +520,8 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 		 * Return the view for the indicator.
 		 */
 		View createIndicatorView();
+		
+		String getTitle();
 	}
 
 	/**
@@ -577,6 +569,10 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 			tabIndicator.setBackgroundDrawable(mBgDrawable);
 			return tabIndicator;
 		}
+		
+		public String getTitle() {
+			return (String) mLabel;
+		}
 	}
 
 	/**
@@ -607,6 +603,7 @@ public class BottomTabHost extends LinearLayout implements ViewTreeObserver.OnTo
 		public void tabClosed() {
 			mView.setVisibility(View.GONE);
 		}
+		
 	}
 
 	/**

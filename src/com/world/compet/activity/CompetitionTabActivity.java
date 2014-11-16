@@ -27,6 +27,7 @@ public class CompetitionTabActivity extends Activity{
 		
 		initView();
 		initData();
+		initListener();
 		
 	}
 
@@ -44,8 +45,7 @@ public class CompetitionTabActivity extends Activity{
 		mTabTitleArray.add(getResources().getString(R.string.competition_type_title));
 		mTabTitleArray.add(getResources().getString(R.string.competition_level_title));
 		mTabTitleArray.add(getResources().getString(R.string.competition_time_title));
-		mExpandTabView.setValue(mTabTitleArray, mTabViewArray);
-		
+		mExpandTabView.setValue(mTabTitleArray, mTabViewArray);	
 	}
 
 	private void initListener() {
@@ -80,8 +80,6 @@ public class CompetitionTabActivity extends Activity{
 		if (position >= 0 && !mExpandTabView.getTitle(position).equals(showText)) {
 			mExpandTabView.setTitle(showText, position);
 		}
-		Toast.makeText(CompetitionTabActivity.this, showText, Toast.LENGTH_SHORT).show();
-
 	}
 	
 	private int getPositon(View tView) {

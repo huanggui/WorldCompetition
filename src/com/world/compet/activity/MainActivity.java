@@ -3,7 +3,10 @@ package com.world.compet.activity;
 import com.world.compet.R;
 import com.world.compet.component.BottomTabHost;
 import com.world.compet.component.TabView;
+
+import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -100,9 +103,12 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 			mainHeaderActionView = (MainHeaderActionView) findViewById(R.id.header_view);
 		}
 		
+		mainHeaderActionView.setTitle(mHost.getCurrentTabTitle());
 		if (TAB_1.equals(tabId)) {
 			mainHeaderActionView.showSearchButton();
-		}else {
+		}else if (TAB_2.equals(tabId)) {
+			mainHeaderActionView.hideSearchButton();
+		} else if (TAB_3.equals(tabId)) {
 			mainHeaderActionView.hideSearchButton();
 		}
 	}

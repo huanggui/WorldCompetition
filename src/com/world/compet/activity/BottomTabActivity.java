@@ -139,4 +139,5 @@ public class BottomTabActivity extends ActivityGroup {
 	public BottomTabWidget getTabWidget() {
 		return mTabHost.getTabWidget();
 	}
+
 }

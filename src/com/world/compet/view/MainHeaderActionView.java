@@ -58,4 +58,8 @@ public class MainHeaderActionView extends RelativeLayout{
 	public void showSearchButton() {
 		mSearchBtnView.setVisibility(View.VISIBLE);
 	}
+	
+	public void setTitle(String title) {
+		mTitleView.setText(title);
+	}
 }
