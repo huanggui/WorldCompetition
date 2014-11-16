@@ -14,6 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+/**
+ * 二级下拉菜单的选择列表适配器
+ * @author huanggui 2014-11-15
+ *
+ */
+
 public class TextAdapter extends ArrayAdapter<String> {
 
 	private Context mContext;

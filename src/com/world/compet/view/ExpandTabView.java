@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.world.compet.R;
 
-import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;

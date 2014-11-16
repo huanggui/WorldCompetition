@@ -5,12 +5,17 @@ import com.world.compet.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+/**
+ * 页面的顶部导航栏，有页面标题，或者还有搜索按钮，用户页面入口图像等
+ * @author huanggui 2014-11-15
+ *
+ */
 
 public class MainHeaderActionView extends RelativeLayout{
 	

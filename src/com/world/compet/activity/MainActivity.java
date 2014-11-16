@@ -3,10 +3,7 @@ package com.world.compet.activity;
 import com.world.compet.R;
 import com.world.compet.component.BottomTabHost;
 import com.world.compet.component.TabView;
-
-import android.view.View;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -67,25 +64,6 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 		
 		icons.recycle();
 	}
-
-//    private void initSearchActionBar() {
-//        // 自定义标题栏  
-//    	if (getActionBar() == null) {
-//			Log.i(TAG, "Has no ActionBar in this Activity.");
-//			return ;
-//		}
-//        getActionBar().setDisplayShowHomeEnabled(false);  
-//        getActionBar().setDisplayShowTitleEnabled(false);  
-//        getActionBar().setDisplayShowCustomEnabled(true);  
-//        LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);  
-//        View mTitleView = mInflater.inflate(R.layout.main_search_action_bar_layout,  
-//                null);  
-//        getActionBar().setCustomView(  
-//                mTitleView,  
-//                new ActionBar.LayoutParams(LayoutParams.MATCH_PARENT,  
-//                        LayoutParams.WRAP_CONTENT));  
-//        mSearchView = (SearchView) mTitleView.findViewById(R.id.search_view); 
-//    }
     
 	public boolean onQueryTextSubmit(String query) {
 		// TODO Auto-generated method stub
@@ -118,22 +96,4 @@ public class MainActivity extends BottomTabActivity implements SearchView.OnQuer
 		
 	}
 
-//	public void onClick(View v) {
-//
-//		switch (v.getId()) {
-//		case R.id.main_tab1:
-//			setTab(TabType.COMPETITION.ordinal());
-//			break;
-//		case R.id.main_tab2:
-//			setTab(TabType.NEWS.ordinal());
-//			break;
-//		case R.id.main_tab3:
-//			setTab(TabType.USER.ordinal());
-//			break;
-//		}
-//	}
-//	
-//	private void setTab(int index) {
-//		mHost.setCurrentTab(currIndex);
-//	}
 }

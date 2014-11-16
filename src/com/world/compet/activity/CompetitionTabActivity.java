@@ -8,7 +8,6 @@ import com.world.compet.view.PopupSelectView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 public class CompetitionTabActivity extends Activity{
 	private static final String TAG = "CompetitionTabActivity";

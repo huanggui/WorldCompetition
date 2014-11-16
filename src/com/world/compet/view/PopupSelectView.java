@@ -5,17 +5,12 @@ import java.util.List;
 
 import com.world.compet.R;
 import com.world.compet.adpter.TextAdapter;
-
-import android.R.integer;
 import android.content.Context;
-import android.graphics.Shader.TileMode;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 
 public class PopupSelectView extends RelativeLayout implements ViewBaseAction{
